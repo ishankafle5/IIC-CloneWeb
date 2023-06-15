@@ -385,12 +385,115 @@
         }
 
         .testcontains {
-
+            /* background-color: red; */
             z-index: 90;
-            color: black;
-            height: 50%;
-            width: 50%;
+            color: white;
+            height: 60%;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
+
+        .testcontains .slides img {
+            border-radius: 100%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+        }
+
+        .testimonial-left {
+            display: flex;
+            justify-content: center;
+            /* padding: 40px; */
+        }
+
+        /* .clone {
+            display: flex;
+            align-items: center;
+            /* visibility: hidden;
+        overflow: hidden;
+        }
+
+        */
+        .wthree-testi_grid p {
+            color: #fff;
+            line-height: 1.9em;
+            /* width: 79%; */
+            margin: 2em auto 1em;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .wthree-testi_grid h5 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            font-family: 'Josefin Sans', sans-serif;
+
+            /* /* margin: 0; */
+        }
+
+        .wthree-testi_grid h6 {
+            color: #f9b3b3;
+            font-size: 0.8em;
+            letter-spacing: 1px;
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 0;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testcontains {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testcontains ul {
+            max-width: 1000px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+
+            /* width: 100%; */
+        }
+
+        .testcontains ul li {
+            display: flex;
+            min-width: 1000px;
+            transition: all 0.5s ease;
+        }
+
+        /* .slides li:not(:nth-child(1)) {
+            display: none;
+        } */
+
+
+        /* .prev-next {
+            display: flex;
+            list-style: none;
+            background: red;
+        }
+
+        .pre {
+            display: flex;
+            background: #000;
+        }
+
+        .next {
+            display: flex;
+            background: #000;
+            justify-content: center;
+        } */
     </style>
 </head>
 
@@ -522,10 +625,60 @@
 
     <!-- Testimonials -->
     <div class="testimonials">
+        <button class="prev" onclick="prevSlide()">p</button>
 
         <div class="testcontains">
-            ukyfljyvjlhghj
+            <!-- <ul class="prev-next">
+
+            </ul> -->
+            <i class="fas fa-band-aid"></i>
+
+            <ul style="list-style: none;" class="slides">
+                <li class="clone first-test">
+                    <div class="wthree-testi_grid">
+                        <div class="testimonial-left">
+                            <img src="https://iic.edu.np/assets/images/bibekThapa.jpg" alt="Image">
+                        </div>
+                        <p>The best word to describe my familiarity with college has to be smooth.
+                            The learnings are interesting and academically stimulating which with
+                            the support of an amazing staffs has prepared us to deal with any
+                            challenges with ease.</p>
+                        <h5>Bibek Thapa</h5>
+                        <h6>BSc (Hons) Computing</h6>
+                    </div>
+                </li>
+
+                <li class="clone">
+                    <div class="wthree-testi_grid">
+                        <div class="testimonial-left">
+                            <img src="https://iic.edu.np/assets/images/bibekThapa.jpg" alt="Image">
+                        </div>
+                        <p>The best word to describe my familiarity with college has to be smooth.
+                            The learnings are interesting and academically stimulating which with
+                            the support of an amazing staffs has prepared us to deal with any
+                            challenges with ease.</p>
+                        <h5>Ishan Kafle</h5>
+                        <h6>BSc (Hons) Computing</h6>
+                    </div>
+                </li>
+
+                <li class="clone">
+                    <div class="wthree-testi_grid">
+                        <div class="testimonial-left">
+                            <img src="https://iic.edu.np/assets/images/bibekThapa.jpg" alt="Image">
+                        </div>
+                        <p>The best word to describe my familiarity with college has to be smooth.
+                            The learnings are interesting and academically stimulating which with
+                            the support of an amazing staffs has prepared us to deal with any
+                            challenges with ease.</p>
+                        <h5>Bikram Kafle</h5>
+                        <h6>BSc (Hons) Computing</h6>
+                    </div>
+                </li>
+            </ul>
         </div>
+        <button class="next" onclick="nextSlide()">p</button>
+
 
     </div>
 
@@ -539,8 +692,33 @@
 
         }
 
-        // var getid = document.getElementById("popupsanu");
-        // getid.style.display = 'none';
+        var getid = document.getElementById("popupsanu");
+        getid.style.display = 'none';
+
+        let mar = 0;
+        function nextSlide() {
+            mar = mar - 1000;
+            if (mar == -3000) {
+                mar = 0;
+            }
+            const first = document.querySelector('.first-test');
+            first.style.marginLeft = `${mar}px`;
+
+        }
+        function prevSlide() {
+            if (mar == 0) {
+                mar = -3000;
+            }
+            mar = mar + 1000;
+            const first = document.querySelector('.first-test');
+            first.style.marginLeft = `${mar}px`;
+
+            console.log(mar);
+
+        }
+        setInterval(() => {
+            nextSlide();
+        }, 4000);
     </script>
 </body>
 
